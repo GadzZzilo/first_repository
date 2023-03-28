@@ -4,7 +4,7 @@ from django.db import models
 class Human(models.Model):
     name = models.CharField(max_length=50, verbose_name='Полное имя')
     age = models.PositiveIntegerField(verbose_name='Возраст')
-    work = models.CharField(max_length=100, verbose_name='Место работы')
+    work = models.CharField(max_length=100, verbose_name='Место работы', blank=True, null=True)
     married = models.BooleanField(verbose_name='Женат/Замужем')
     slug = models.SlugField(max_length=100, verbose_name='URL')
     description = models.TextField(max_length=250, verbose_name='Описание')

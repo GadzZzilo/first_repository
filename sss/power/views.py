@@ -6,7 +6,7 @@ from .models import Human
 
 class HomeView(ListView):
     model = Human
-    template_name = "index.html"
+    template_name = "home.html"
 
 
 class AboutView(ListView):
