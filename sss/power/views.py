@@ -11,4 +11,14 @@ class HomeView(ListView):
 
 class AboutView(ListView):
     model = Human
-    template_name = 'inside.html'
+    template_name = 'about.html'
+
+
+class ServicesView(ListView):
+    model = Human
+    template_name = 'services.html'
+
+
+class ContactView(ListView):
+    model = Human
+    template_name = 'contact.html'
