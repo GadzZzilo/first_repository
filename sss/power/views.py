@@ -7,6 +7,10 @@ from .models import Human
 class HomeView(ListView):
     model = Human
     template_name = "home.html"
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return Human.objects.all()
 
 
 class AboutView(ListView):
