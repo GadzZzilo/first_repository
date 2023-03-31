@@ -11,6 +11,10 @@
 *	Edit this section
 *
 * ======================================================= */
+.brand {
+    width: 26%;
+}
+
 body {
   font-family: "Roboto", Arial, sans-serif;
   line-height: 1.8;
