@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block text-center %}
+<ul class="nav text-center">
+    <li class="active"><a href="{% url 'home' %}"><span>Главная</span></a></li>
+    <li><a href="{% url 'about' %}">О нас</a></li>
+    <li><a href="{% url 'contact' %}">Обратная связь</a></li>
+</ul>
+{% endblock text-center %}
+
+{% block content %}
+
+<section id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 text-center">
+                <div class="intro animate-box">
+                    <h2>Сервис обучения и помощи школьникам и студентам</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="work">
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-6">
+                <div class="fh5co-grid animate-box"
+                     style="background-image: url(static/images/services_images/837ba93c6e4bcfe2b032d18d9adae968.jpg);">
+                    <a class="image-popup text-center" href="#">
+                        <div class="work-title">
+                            <h3>{{ post.name }}</h3>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            <!--            <div class="col-md-6">-->
+            <!--                <div class="fh5co-grid animate-box" style="background-image: ;">-->
+            <!--                    <a class="image-popup text-center" href="#">-->
+            <!--                        <div class="work-title">-->
+            <!--                            <h3>Don’t Just Stand There</h3>-->
+            <!--                            <span>Illustration, Print</span>-->
+            <!--                        </div>-->
+            <!--                    </a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-8">-->
+            <!--                <div class="fh5co-grid animate-box" style="background-image: url(images/work-5.jpg);">-->
+            <!--                    <a class="image-popup text-center" href="#">-->
+            <!--                        <div class="work-title">-->
+            <!--                            <h3>Don’t Just Stand There</h3>-->
+            <!--                            <span>Illustration, Print</span>-->
+            <!--                        </div>-->
+            <!--                    </a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="col-md-4">-->
+            <!--                <div class="fh5co-grid animate-box" style="background-image: url(images/work-4.jpg);">-->
+            <!--                    <a class="image-popup text-center" href="#">-->
+            <!--                        <div class="work-title">-->
+            <!--                            <h3>Don’t Just Stand There</h3>-->
+            <!--                            <span>Illustration, Print</span>-->
+            <!--                        </div>-->
+            <!--                    </a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+
+            <!--            <div class="col-md-12">-->
+            <!--                <div class="fh5co-grid animate-box" style="background-image: url(images/work-3.jpg);">-->
+            <!--                    <a class="image-popup text-center" href="#">-->
+            <!--                        <div class="work-title">-->
+            <!--                            <h3>Ampersand</h3>-->
+            <!--                            <span>Illustration, Print</span>-->
+            <!--                        </div>-->
+            <!--                    </a>-->
+            <!--                </div>-->
+            <!--            </div>-->
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
