@@ -72,3 +72,16 @@ class Service(models.Model):
         return self.name
 
 
+class Feedback(models.Model):
+    name = models.CharField(max_length=100, verbose_name='Имя')
+    email = models.EmailField(max_length=100, verbose_name='Электронная почта')
+    message = models.TextField(verbose_name='Отзыв')
+    create_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+        ordering = ['name']

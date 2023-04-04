@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0003_alter_human_options'),
+        ('main_pages', '0003_alter_human_options'),
     ]
 
     operations = [

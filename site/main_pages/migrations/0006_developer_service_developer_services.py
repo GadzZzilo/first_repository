@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0005_hobby_human_photo_human_hobby'),
+        ('main_pages', '0005_hobby_human_photo_human_hobby'),
     ]
 
     operations = [
@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(verbose_name='URL')),
                 ('image', models.ImageField(upload_to='services_images/', verbose_name='Картинка')),
                 ('price', ckeditor.fields.RichTextField(verbose_name='Прайслист')),
-                ('author', models.ManyToManyField(to='main.developer', verbose_name='Автор')),
+                ('author', models.ManyToManyField(to='main_pages.developer', verbose_name='Автор')),
             ],
             options={
                 'verbose_name': 'Услуга',
@@ -47,6 +47,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='developer',
             name='services',
-            field=models.ManyToManyField(to='main.service', verbose_name='Услуги'),
+            field=models.ManyToManyField(to='main_pages.service', verbose_name='Услуги'),
         ),
     ]
