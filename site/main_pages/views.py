@@ -20,6 +20,7 @@ class HomeView(ListView):
 class AboutView(ListView):
     model = Developer
     template_name = 'about.html'
+    context_object_name = 'developers'
 
 
 class ServicesView(ListView):
