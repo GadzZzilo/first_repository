@@ -14,8 +14,9 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Developer)
 class DeveloperAdmin(admin.ModelAdmin):
     list_display = ['name', 'get_html_photo']
-    list_display_links = ['name', 'get_html_photo']
+    list_display_links = ['name']
     prepopulated_fields = {'slug': ('name',)}
+    fields = ('name', 'slug', 'age', 'photo', 'description', 'services')
 
     def get_html_photo(self, object):
         if object.photo:
@@ -28,3 +29,6 @@ class DeveloperAdmin(admin.ModelAdmin):
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ['name', 'email', 'create_at']
     list_display_links = ['name']
+
+
+# admin.site.register(Developer, DeveloperAdmin)

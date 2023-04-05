@@ -37,50 +37,18 @@
         </div>
         <div class="row">
             <div class="post-entry">
-            {% if developers|length != 0 %}
                 {% for developer in developers %}
                 <div class="col-md-6">
                     <div class="post animate-box">
-                        <a href="#"><img src="{% static 'images/work-2.jpg' %}" alt="Product"></a>
+                        <a href="#"><img src="{{ developer.photo.url }}" alt="{{ developer.name }}"></a>
                         <div>
-                            <h3><a href="#">Camera Lenses</a></h3>
-                            <p>Far far away, behind the word, far from the countries Vokalia</p>
-                            <span><a href="#">Learn More...</a></span>
+                            <h3><a href="#">{{ developer.name }}</a></h3>
+                            <p>{{ developer.description|safe }}</p>
+                            <span><a href="#">Читать больше</a></span>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-                {% endif %}
-<!--                <div class="col-md-6">-->
-<!--                    <div class="post animate-box">-->
-<!--                        <a href="#"><img src="{% static 'images/work-1.jpg' %}" alt="Product"></a>-->
-<!--                        <div>-->
-<!--                            <h3><a href="#">Camera Lenses</a></h3>-->
-<!--                            <p>Far far away, behind the word, far from the countries Vokalia</p>-->
-<!--                            <span><a href="#">Learn More...</a></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="post animate-box">-->
-<!--                        <a href="#"><img src="images/work-2.jpg" alt="Product"></a>-->
-<!--                        <div>-->
-<!--                            <h3><a href="#">Camera Lenses</a></h3>-->
-<!--                            <p>Far far away, behind the word, far from the countries Vokalia</p>-->
-<!--                            <span><a href="#">Learn More...</a></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-6">-->
-<!--                    <div class="post animate-box">-->
-<!--                        <a href="#"><img src="images/work-1.jpg" alt="Product"></a>-->
-<!--                        <div>-->
-<!--                            <h3><a href="#">Camera Lenses</a></h3>-->
-<!--                            <p>Far far away, behind the word, far from the countries Vokalia</p>-->
-<!--                            <span><a href="#">Learn More...</a></span>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
             </div>
         </div>
     </div>

@@ -16,5 +16,5 @@ class FeedbackForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(),
             'email': forms.EmailInput(),
-            'message': forms.Textarea(attrs={'cols': 60, 'rows': 10}),
+            'message': forms.Textarea(attrs={'cols': 60, 'rows': 5}),
         }

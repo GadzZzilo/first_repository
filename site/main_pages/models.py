@@ -9,7 +9,7 @@ class Developer(models.Model):
     slug = models.SlugField(verbose_name='URL')
     photo = models.ImageField(verbose_name='Фото', upload_to='authors_photos')
     description = RichTextField(verbose_name='Описание')
-    services = models.ManyToManyField('Service', verbose_name='Услуги')
+    services = models.ManyToManyField('Service', verbose_name='Услуги', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -25,7 +25,7 @@ class Service(models.Model):
     description = RichTextField(verbose_name='Описание')
     slug = models.SlugField(verbose_name='URL')
     image = models.ImageField(verbose_name='Картинка', upload_to='services_images/')
-    author = models.ManyToManyField('Developer', verbose_name='Автор', blank=True, null=True)
+    author = models.ManyToManyField('Developer', verbose_name='Автор')
     price = RichTextField(verbose_name='Прайслист')
 
     class Meta:

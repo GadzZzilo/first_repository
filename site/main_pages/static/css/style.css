@@ -11,6 +11,51 @@
 *	Edit this section
 *
 * ======================================================= */
+
+.login {
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    text-align: right;
+    list-style: none;
+}
+
+.login li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+.login li a {
+  font-size: 50px;
+  display: table;
+  width: 24px;
+  height: 24px;
+  margin: 0 4px;
+  color: #000;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.login li a:hover, .login li a:focus {
+  color: #52d3aa;
+  text-decoration: none;
+}
+.login li a i {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media screen and (max-width: 992px) {
+  .login {
+    text-align: center;
+  }
+}
+
 body {
   font-family: "Roboto", Arial, sans-serif;
   line-height: 1.8;
@@ -440,6 +485,7 @@ footer .social {
 .social {
   padding: 0;
   margin: 0;
+  margin-top: 20px;
   display: inline-block;
   position: relative;
   width: 100%;
