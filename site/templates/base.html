@@ -87,9 +87,23 @@
                         {% endblock text-center %}
                     </div>
                     <div class="col-md-3">
+                        {% if request.user.is_authenticated %}
                         <ul class="login">
-                            <li><a class="login" href="https://vk.com/vintsss"><i class='fa fa-sign-in'></i></a></li>
+                            <li data-tooltip="Выйти">
+                                <div>
+                                    <a class="login" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i></a>
+                                </div>
+                            </li>
                         </ul>
+                        {% else %}
+                        <ul class="login">
+                            <li data-tooltip="Авторизация">
+                                <div>
+                                    <a class="login" href="{% url 'login' %}"><i class='fa fa-sign-in'></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                        {% endif %}
                         <ul class="social">
                             <li><a href="https://vk.com/vintsss"><i class="icon-vk"></i></a></li>
                             <li><a href="https://github.com/GadzZzilo"><i class="icon-github"></i></a></li>
@@ -137,10 +151,6 @@
                         <p>Мы отвечаем за качество и готовы обеспечить гарантию своих трудов</p>
                     </div>
                 </div>
-
-                <!--                <ul class="last_list">-->
-                <!--                    <li class="last"><a href="#">Зарегистрироваться</a> | <a href="#">Войти</a></li>-->
-                <!--                </ul>-->
             </div>
         </div>
     </section>

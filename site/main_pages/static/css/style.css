@@ -11,15 +11,53 @@
 *	Edit this section
 *
 * ======================================================= */
+.error-field {
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  float: left;
+  padding: 20px 30px;
+}
+
+[data-tooltip]::after {
+  position: relative;
+  position: absolute;
+  width: 300px;
+  top: 20%;
+  right: 30%;
+  content: attr(data-tooltip); /* Выводим текст */
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+    [data-tooltip]::after {
+        top: 20%;
+        right: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    [data-tooltip]::after {
+        position: static;
+    }
+}
+
+
 
 .login {
     font-size: 40px;
+    width:100%;
     padding: 0;
     margin: 0;
     margin-top: 20px;
     display: inline-block;
     position: relative;
-    width: 100%;
     text-align: right;
     list-style: none;
 }
@@ -33,8 +71,6 @@
 .login li a {
   font-size: 50px;
   display: table;
-  width: 24px;
-  height: 24px;
   margin: 0 4px;
   color: #000;
   -webkit-transition: 0.5s;
@@ -527,3 +563,4 @@ footer .social {
 }
 
 /*# sourceMappingURL=style.css.map */
+

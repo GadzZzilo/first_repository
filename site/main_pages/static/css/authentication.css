@@ -1,0 +1,174 @@
+body {
+  background:url('http://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg');
+  margin:0px;
+  font-family: 'Ubuntu', sans-serif;
+  background-size: 100% 110%;
+}
+h1, h2, h3, h4, h5, h6, a {
+  margin:0; padding:0;
+}
+.login {
+  margin:0 auto;
+  max-width:500px;
+}
+.login-header {
+  color: #52d3aa;
+  text-align:center;
+  font-size:300%;
+}
+/* .login-header h1 {
+   text-shadow: 0px 5px 15px #000; */
+}
+.login-form {
+  border:.5px solid #fff;
+  background:#4facff;
+  border-radius:10px;
+  box-shadow:0px 0px 10px #000;
+}
+.login-form h3 {
+  text-align:left;
+  margin-left:40px;
+}
+.login-form {
+  box-sizing:border-box;
+  padding-top:15px;
+  padding-bottom:10%;
+  margin:5% auto;
+  text-align:center;
+}
+
+/*.login input[type="text"],
+.login input[type="password"] {
+  max-width:400px;
+  width: 80%;
+  line-height:3em;
+  font-family: 'Ubuntu', sans-serif;
+  margin:1em 2em;
+  border-radius:5px;
+  border:2px solid #f2f2f2;
+  outline:none;
+  padding-left:10px;
+}*/
+
+.login-form input[type="button"] {
+  height:30px;
+  width:100px;
+  background:#fff;
+  border:1px solid #f2f2f2;
+  border-radius:20px;
+  color: slategrey;
+  text-transform:uppercase;
+  font-family: 'Ubuntu', sans-serif;
+  cursor:pointer;
+}
+.sign-up{
+  margin-top: 10%;
+  color: #52d3aa;
+  cursor:pointer;
+  text-decoration:underline;
+}
+#sign-up_text {
+    color: #000000;
+    text-decoration:none;
+    cursor:default;
+}
+.no-access {
+  color: #52d3aa;
+  margin:20px 0px 20px -57%;
+  text-decoration:underline;
+  cursor:pointer;
+}
+.try-again {
+  color: #52d3aa;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+/*Media Querie*/
+@media only screen and (min-width : 150px) and (max-width : 530px){
+  .login-form h3 {
+    text-align:center;
+    margin:0;
+  }
+  .sign-up, .no-access {
+    margin:10px 0;
+  }
+  .login-button {
+    margin-bottom:10px;
+  }
+}
+
+.btn {
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.btn {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.btn.btn-primary {
+  background: #52d3aa;
+  color: #fff;
+  border: none !important;
+  border: 2px solid transparent !important;
+}
+.btn.btn-primary:hover, .btn.btn-primary:active, .btn.btn-primary:focus {
+  box-shadow: none;
+  background: #52d3aa;
+}
+.btn:hover, .btn:active, .btn:focus {
+  background: #393e46 !important;
+  color: #fff;
+  outline: none !important;
+}
+.btn.btn-default:hover, .btn.btn-default:focus, .btn.btn-default:active {
+  border-color: transparent;
+}
+#submit {
+  margin-top: 10%;
+  height: 57px;
+  font-size: 20px;
+}
+
+.back_arrow {
+    font-size: 40px;
+    color: black;
+    margin: 40px;
+}
+
+.error-field {
+  background-color: #fce4e4;
+  border: 1px solid #fcc2c3;
+  float: left;
+  padding: 20px 30px;
+}
+.bottom-text {
+    font-size: 18px;
+}
+
+
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 57px;
+  padding: 10px 20px;
+  font-size: 20px;
+  line-height: 1.42857;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-shadow: none;
+}
+.form-control:focus, .form-control:active {
+  box-shadow: none;
+  border: 2px solid #52d3aa;
+}
