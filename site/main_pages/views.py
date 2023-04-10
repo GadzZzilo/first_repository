@@ -25,11 +25,6 @@ class AboutView(ListView):
     context_object_name = 'developers'
 
 
-class ServicesView(ListView):
-    model = Service
-    template_name = 'services.html'
-
-
 class FeedbackCreateView(CreateView):
     model = Feedback
     form_class = FeedbackForm
@@ -55,8 +50,9 @@ def logout_user(request):
     logout(request)
     return redirect('home')
 
+
 class DetailService(DetailView):
     model = Service
-    context_object_name = 'post'
-    template_name = 'post_detail.html'
-    pk_url_kwarg = 'post_pk'
+    context_object_name = 'service'
+    template_name = 'service_detail.html'
+    slug_url_kwarg = 'service_slug'

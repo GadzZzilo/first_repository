@@ -9,6 +9,6 @@ urlpatterns = [
     path('login/', LoginUser.as_view(), name='login'),
     path('register/', RegisterUser.as_view(), name='register'),
     path('logout', logout_user, name='logout'),
-    path('post/<int:post_pk>', DetailService.as_view(), name='post'),
+    path('service/<slug:service_slug>', DetailService.as_view(), name='service'),
     path('', HomeView.as_view(), name='home'),
 ]

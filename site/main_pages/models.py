@@ -1,5 +1,6 @@
 from ckeditor.fields import RichTextField
 from django.db import models
+from django.urls import reverse
 
 
 class Developer(models.Model):
@@ -8,7 +9,7 @@ class Developer(models.Model):
     slug = models.SlugField(verbose_name='URL')
     photo = models.ImageField(verbose_name='Фото', upload_to='authors_photos')
     description = RichTextField(verbose_name='Описание')
-    services = models.ManyToManyField('Service', verbose_name='Услуги', blank=True, null=True)
+    services = models.ManyToManyField('Service', verbose_name='Услуги', blank=True, null=True, related_name='services')
 
     def __str__(self):
         return self.name
@@ -18,13 +19,16 @@ class Developer(models.Model):
         verbose_name_plural = 'Разработчики'
         ordering = ['name']
 
+    def get_services(self):
+        return self.services.all()
+
 
 class Service(models.Model):
     name = models.CharField(max_length=70, verbose_name='Название')
     description = RichTextField(verbose_name='Описание')
     slug = models.SlugField(verbose_name='URL')
     image = models.ImageField(verbose_name='Картинка', upload_to='services_images/')
-    author = models.ManyToManyField('Developer', verbose_name='Автор')
+    author = models.ManyToManyField('Developer', verbose_name='Автор', related_name='author')
     price = RichTextField(verbose_name='Прайслист')
 
     class Meta:
@@ -34,6 +38,12 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('service', kwargs={'service_slug': self.slug})
+
+    def get_author(self):
+        return self.author.all()
 
 
 class Feedback(models.Model):

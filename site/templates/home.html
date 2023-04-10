@@ -30,7 +30,7 @@
             <div class="col-md-6">
                 <div class="fh5co-grid animate-box"
                      style="background-image: url({{ post.image.url }});">
-                    <a class="image-popup text-center" href="#">
+                    <a class="image-popup text-center" href="{{ post.get_absolute_url }}">
                         <div class="work-title">
                             <h3>{{ post.name }}</h3>
                         </div>
