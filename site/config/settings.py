@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # my apps
     'main_pages',
+    'users',
 
     # installed apps
     'ckeditor',
@@ -139,6 +140,14 @@ MEDIA_URL = '/media/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+# Captcha
 
 CAPTCHA_FONT_SIZE = 42
 CAPTCHA_IMAGE_SIZE = (200, 120)
+
+# users
+AUTH_USER_MODEL = 'users.User'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]

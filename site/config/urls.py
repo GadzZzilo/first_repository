@@ -7,6 +7,7 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main_pages.urls')),
+    path('user', include('users.urls')),
     path('captcha/', include('captcha.urls')),
 ]
 

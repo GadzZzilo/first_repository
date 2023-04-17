@@ -27,7 +27,7 @@ class DeveloperAdmin(admin.ModelAdmin):
 
 @admin.register(Feedback)
 class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'create_at']
+    list_display = ['name', 'email', 'service', 'author', 'create_at']
     list_display_links = ['name']
 
 

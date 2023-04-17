@@ -9,7 +9,7 @@ class Developer(models.Model):
     slug = models.SlugField(verbose_name='URL')
     photo = models.ImageField(verbose_name='Фото', upload_to='authors_photos')
     description = RichTextField(verbose_name='Описание')
-    services = models.ManyToManyField('Service', verbose_name='Услуги', blank=True, null=True, related_name='services')
+    services = models.ManyToManyField('Service', verbose_name='Услуги', blank=True, null=True, related_name='services' )
 
     def __str__(self):
         return self.name
@@ -28,7 +28,7 @@ class Service(models.Model):
     description = RichTextField(verbose_name='Описание')
     slug = models.SlugField(verbose_name='URL')
     image = models.ImageField(verbose_name='Картинка', upload_to='services_images/')
-    author = models.ManyToManyField('Developer', verbose_name='Автор', related_name='author')
+    author = models.ManyToManyField('Developer', verbose_name='Автор', related_name='author', blank=True, null=True)
     price = RichTextField(verbose_name='Прайслист')
 
     class Meta:
@@ -50,6 +50,8 @@ class Feedback(models.Model):
     name = models.CharField(max_length=100, verbose_name='Имя')
     email = models.EmailField(max_length=100, verbose_name='Электронная почта')
     message = models.TextField(verbose_name='Отзыв')
+    service = models.TextField(verbose_name='Услуга', blank=True, null=True)
+    author = models.TextField(verbose_name='Автор', blank=True, null=True)
     create_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True)
 
     def __str__(self):
