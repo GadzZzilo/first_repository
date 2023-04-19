@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('main_pages.urls')),
     path('user', include('users.urls')),
     path('captcha/', include('captcha.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

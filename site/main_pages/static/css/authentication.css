@@ -174,3 +174,44 @@ h1, h2, h3, h4, h5, h6, a {
   box-shadow: none;
   border: 2px solid #52d3aa;
 }
+
+
+.social {
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  text-align: right;
+}
+.social li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+}
+.social li a {
+  font-size: 36px;
+  display: table;
+  width: 24px;
+  height: 24px;
+  margin: 0 4px;
+  color: #000;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.social li a:hover, .social li a:focus {
+  color: #52d3aa;
+  text-decoration: none;
+}
+.social li a i {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media screen and (max-width: 992px) {
+  .social {
+    text-align: center;
+  }
+}

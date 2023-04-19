@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-bs3i&cgg4uxrpn7)3mfl!tt(j2_zlo4bq*1cf8bre_^a1!8rkj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 ALLOWED_HOSTS = ['*']
+DOMAIN_NAME = 'http://localhost:8000'
 
 
 # Application definition
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # my apps
     'main_pages',
@@ -44,7 +46,10 @@ INSTALLED_APPS = [
     # installed apps
     'ckeditor',
     'captcha',
-
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 ]
 
 MIDDLEWARE = [
@@ -82,9 +87,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": "study_site_db",
+        "USER": "site_username",
+        "PASSWORD": "12345678",
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 
@@ -113,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru'
 
-TIME_ZONE = 'Europe/Moscow'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -145,9 +154,31 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 CAPTCHA_FONT_SIZE = 42
 CAPTCHA_IMAGE_SIZE = (200, 120)
 
-# users
+# Users
 AUTH_USER_MODEL = 'users.User'
+
+
+# Email
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = 'Gomosidr@yandex.ru'
+# EMAIL_HOST_PASSWORD = '<jcc12345678'
+# EMAIL_USE_SSL = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# OAuth
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+        ],
+    }
+}
