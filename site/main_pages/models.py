@@ -9,7 +9,7 @@ class Developer(models.Model):
     slug = models.SlugField(verbose_name='URL')
     photo = models.ImageField(verbose_name='Фото', upload_to='authors_photos')
     description = RichTextField(verbose_name='Описание')
-    services = models.ManyToManyField('Service', verbose_name='Услуги', blank=True, null=True, related_name='services' )
+    services = models.ManyToManyField('Service', verbose_name='Услуги', blank=True, null=True, related_name='services')
 
     def __str__(self):
         return self.name

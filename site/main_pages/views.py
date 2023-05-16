@@ -10,25 +10,17 @@ class HomeView(DataMixin, ListView):
     model = Service
     template_name = "home.html"
     context_object_name = 'posts'
+    title = 'Главная'
 
     def get_queryset(self):
         return Service.objects.all()
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user_context = self.get_user_context(title='Главная')
-        return dict(list(context.items()) + list(user_context.items()))
 
 
 class AboutView(DataMixin, ListView):
     model = Developer
     template_name = 'about.html'
     context_object_name = 'developers'
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user_context = self.get_user_context(title='О нас')
-        return dict(list(context.items()) + list(user_context.items()))
+    title = 'О нас'
 
 
 class FeedbackCreateView(DataMixin, CreateView):
@@ -36,11 +28,7 @@ class FeedbackCreateView(DataMixin, CreateView):
     form_class = FeedbackForm
     template_name = 'contact.html'
     success_url = '/'
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        user_context = self.get_user_context(title='Обратная связь')
-        return dict(list(context.items()) + list(user_context.items()))
+    title = 'Обратная связь'
 
 
 class DetailService(DataMixin, DetailView):
@@ -48,11 +36,12 @@ class DetailService(DataMixin, DetailView):
     context_object_name = 'service'
     template_name = 'service_detail.html'
     slug_url_kwarg = 'service_slug'
+    title = ''
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        user_context = self.get_user_context(title=context['service'])
-        return dict(list(context.items()) + list(user_context.items()))
+        context['title'] = context['service']
+        return context
 
 
 def pageNotFound(request, exception):
