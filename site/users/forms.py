@@ -30,4 +30,5 @@ class RegisterUserForm(UserCreationForm):
     def save(self, commit=True):
         user = super(RegisterUserForm, self).save(commit=True)  # возвращает новосозданный объект пользовтеля
         send_email_verification.delay(user.id)
+        # send_email_verification(user.id)
         return user

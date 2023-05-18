@@ -6,6 +6,9 @@
     <li><a href="{% url 'home' %}"><span>Главная</span></a></li>
     <li class="active"><a href="{% url 'about' %}">О нас</a></li>
     <li><a href="{% url 'contact' %}">Обратная связь</a></li>
+    {% if request.user.is_superuser %}
+        <li><a href="#">Админ панель</a></li>
+    {% endif %}
 </ul>
 {% endblock text-center %}
 
@@ -39,9 +42,9 @@
                 {% for developer in developers %}
                 <div class="col-md-6">
                     <div class="post animate-box">
-                        <a href="#"><img src="{{ developer.photo.url }}" alt="{{ developer.name }}"></a>
+                        <a><img src="{{ developer.photo.url }}" alt="{{ developer.name }}"></a>
                         <div>
-                            <h3><a href="#">{{ developer.name }}</a></h3>
+                            <h3>{{ developer.name }}</h3>
                             <p>{{ developer.description|safe }}</p>
                         </div>
                     </div>

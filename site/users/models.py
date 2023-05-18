@@ -6,12 +6,14 @@ from django.urls import reverse
 from django.utils.timezone import now
 
 
+# Чтобы изменить поля для пользователя необходимо в config изменить настройки для пользователя
 class User(AbstractUser):
     photo = models.ImageField(upload_to='users_images/', verbose_name='Фото пользователя', null=True, blank=True)
     is_verified_email = models.BooleanField(default=False)
 
 
 class EmailVerification(models.Model):
+    """Модель для верификации email"""
     code = models.UUIDField(unique=True)
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
@@ -21,6 +23,7 @@ class EmailVerification(models.Model):
         return f'EmailVerification object для {self.user.email}'
 
     def send_verification_email(self):
+        """Отправляет на почту сообщение с ссылкой подтверждения email"""
         link = reverse('verification', kwargs={'email': self.user.email, 'code': self.code})
         verification_link = f'{settings.DOMAIN_NAME}{link}'
         subject = f'Подтверждение email для пользователя {self.user.username}'

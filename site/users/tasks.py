@@ -6,7 +6,7 @@ from django.utils.timezone import now
 
 from .models import EmailVerification, User
 
-
+# необходимо файл назвать tasks для работы с сельдереем
 @shared_task
 def send_email_verification(user_id):
     user = User.objects.get(id=user_id)
